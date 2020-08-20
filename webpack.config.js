@@ -7,22 +7,18 @@ module.exports = {
     mode: 'development',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[hash:5].js'
+        filename: 'bundle.[hash:5].js'
     },
     module: {
         rules: [
             {
                 test: /\.(png|jpe?g|gif)$/i,
-                loader: 'file-loader',
-                options: {
-                    esModule: false
-                }
+                loader: 'file-loader'
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'src/index.ejs',
             inject: false
         }),
         new CleanWebpackPlugin()
