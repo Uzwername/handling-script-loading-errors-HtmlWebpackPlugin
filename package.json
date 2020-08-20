@@ -1,0 +1,34 @@
+{
+  "name": "handling-script-loading-errors-htmlwebpackplugin",
+  "version": "1.0.0",
+  "description": "Handling script loading errors with HtmlWebpackPlugin",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uzwername/handling-script-loading-errors-HtmlWebpackPlugin.git"
+  },
+  "keywords": [
+    "HtmlWebpackPlugin",
+    "webpack"
+  ],
+  "author": {
+    "name": "Igor Bykov",
+    "email": "igor.bykov@protonmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Uzwername/handling-script-loading-errors-HtmlWebpackPlugin/issues"
+  },
+  "homepage": "https://github.com/Uzwername/handling-script-loading-errors-HtmlWebpackPlugin#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

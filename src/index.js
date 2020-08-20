@@ -1,0 +1,1 @@
+document.getElementById('content').innerText = 'This content is just a sample!';
