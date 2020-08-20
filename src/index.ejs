@@ -4,8 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handling script loading errors with HtmlWebpackPlugin</title>
+    <style>
+        html, body, h1 {
+            padding: 0;
+            margin: 0;
+        }
+        #bundleLoadingErrorContainer {
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFF;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+        .bundle_error_title {
+            padding: 0 1.5%;
+        }
+    </style>
 </head>
 <body>
     <h1 id="content"></h1>
+    <div id="bundleLoadingErrorContainer" style="display: none;">
+        <h2 class="bundle_error_title">Oops, something went wrong. Please reload the page.</h2>
+        <figure class="photo">
+            <img src="<%= require('./assets/bird.jpg') %>" width="300" height="200" alt="bird">
+            <br>
+            <br>
+            <figcaption>
+                Photo by <a href="https://unsplash.com/@photoholgic" target="_blank" rel="external noopener">Holger Link</a> on <a href="https://unsplash.com/" target="_blank" rel="external noopener">Unsplash</a>
+            </figcaption>
+        </figure>
+    </div>
+    <script>
+    (function() {
+        function showErrorMessage() {
+            document.getElementById('bundleLoadingErrorContainer').removeAttribute('style');
+        }
+
+        var bundlesSrcs = <%= JSON.stringify(htmlWebpackPlugin.files.js) %>;
+
+        for(var i=0; i < bundlesSrcs.length; i++) {
+            var scriptTag = document.createElement('script');
+            scriptTag.src = bundlesSrcs[i];
+            scriptTag.addEventListener('error', showErrorMessage);
+
+            document.body.appendChild(scriptTag);
+        }
+    })();
+    </script>
 </body>
 </html>
