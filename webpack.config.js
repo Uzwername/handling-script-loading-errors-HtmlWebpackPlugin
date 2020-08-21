@@ -7,13 +7,10 @@ module.exports = {
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[hash:5].js'
+        filename: 'bundle.[hash:5].js'
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/index.ejs',
-
-        }),
+        new HtmlWebpackPlugin(),
         new CleanWebpackPlugin()
     ]
 };
